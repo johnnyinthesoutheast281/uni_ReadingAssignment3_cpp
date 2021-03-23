@@ -128,9 +128,65 @@ Ex: class myBaseClass{
 
 // Chapter 26 : Exercises //
 
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Person{
+    private:
+    string name;
+
+    public:
+    explicit Person(string name){
+        this->name = name;
+    }
+    string getname(){
+        return this->name;
+    }    
+};
+
+class Student : public Person{
+    private:
+    int semester;
+
+    public:
+    Student(string name, int semester) : Person(name){
+        this->semester = semester;
+    }
+    int getsemester(){
+        return this->semester;
+    }
+};
+
+int main(){
+    Person a_person("Nguyen Minh Tri");
+    cout << a_person.getname() << endl;
+
+    Student a_student("Nguyen Van Nam", 1);
+    cout << a_student.getname() << endl;
+    cout << a_student.getsemester() << endl;
+    return 0;
+}
 
 
 
+
+// Chapter 38.1 : Vector //
+
+To create a vector, first, you have to include <vector> library.
+To put a new value to the end of the vector, use push_back() function.
+
+Ex: vector<int> a = {1,2,4,5};
+    a.push_back(10); // a = {1, 2, 4, 5, 10} //
+    
+To access the element of the vector, use [index] or at() function (index starts from 0).
+To obtain the length of the vector, or the number of elements, use size() function.
+
+Ex: vector <int> a = {1, 2, 3};
+    cout << a.size() << endl; // Prints out 3 //
+    cout << a[2] << endl; // Prints out 3 //
+    cout << a.at(1) << endl; // Prints out 2 //
 
 
 
